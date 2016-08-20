@@ -1,0 +1,14 @@
+resources:
+- type: compute.v2.droplet
+  name: lb
+  properties:
+    region: nyc1
+    count: 2
+    image: ubuntu-16-04-x64
+    size: 2gb
+    keys:
+      - 104064
+- type: compute.v2.floating-ip
+  name: main-fip
+  properties:
+    region: nyc1

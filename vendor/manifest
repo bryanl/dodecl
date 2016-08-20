@@ -1,0 +1,188 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/cpuguy83/go-md2man/md2man",
+			"repository": "https://github.com/cpuguy83/go-md2man",
+			"revision": "2724a9c9051aa62e9cca11304e7dd518e9e41599",
+			"branch": "master",
+			"path": "/md2man"
+		},
+		{
+			"importpath": "github.com/davecgh/go-spew/spew",
+			"repository": "https://github.com/davecgh/go-spew",
+			"revision": "6cf5744a041a0022271cefed95ba843f6d87fd51",
+			"branch": "master",
+			"path": "/spew"
+		},
+		{
+			"importpath": "github.com/fsnotify/fsnotify",
+			"repository": "https://github.com/fsnotify/fsnotify",
+			"revision": "f12c6236fe7b5cf6bcf30e5935d08cb079d78334",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/hashicorp/hcl",
+			"repository": "https://github.com/hashicorp/hcl",
+			"revision": "d8c773c4cba11b11539e3d45f93daeaa5dcf1fa1",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/kr/fs",
+			"repository": "https://github.com/kr/fs",
+			"revision": "2788f0dbd16903de03cb8186e5c7d97b69ad387b",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/magiconair/properties",
+			"repository": "https://github.com/magiconair/properties",
+			"revision": "61b492c03cf472e0c6419be5899b8e0dc28b1b88",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/mitchellh/mapstructure",
+			"repository": "https://github.com/mitchellh/mapstructure",
+			"revision": "ca63d7c062ee3c9f34db231e352b60012b4fd0c1",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/pelletier/go-buffruneio",
+			"repository": "https://github.com/pelletier/go-buffruneio",
+			"revision": "df1e16fde7fc330a0ca68167c23bf7ed6ac31d6d",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/pelletier/go-toml",
+			"repository": "https://github.com/pelletier/go-toml",
+			"revision": "31c735e72c57c5147e4a3c4abdcedd71f5117d51",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/pkg/errors",
+			"repository": "https://github.com/pkg/errors",
+			"revision": "a22138067af1c4942683050411a841ade67fe1eb",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/pkg/sftp",
+			"repository": "https://github.com/pkg/sftp",
+			"revision": "a71e8f580e3b622ebff585309160b1cc549ef4d2",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/pmezard/go-difflib/difflib",
+			"repository": "https://github.com/pmezard/go-difflib",
+			"revision": "792786c7400a136282c1664665ae0a8db921c6c2",
+			"branch": "master",
+			"path": "/difflib"
+		},
+		{
+			"importpath": "github.com/russross/blackfriday",
+			"repository": "https://github.com/russross/blackfriday",
+			"revision": "93622da34e54fb6529bfb7c57e710f37a8d9cbd8",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/shurcooL/sanitized_anchor_name",
+			"repository": "https://github.com/shurcooL/sanitized_anchor_name",
+			"revision": "10ef21a441db47d8b13ebcc5fd2310f636973c77",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/spf13/afero",
+			"repository": "https://github.com/spf13/afero",
+			"revision": "b28a7effac979219c2a2ed6205a4d70e4b1bcd02",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/spf13/cast",
+			"repository": "https://github.com/spf13/cast",
+			"revision": "e31f36ffc91a2ba9ddb72a4b6a607ff9b3d3cb63",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/spf13/cobra",
+			"repository": "https://github.com/spf13/cobra",
+			"revision": "7c674d9e72017ed25f6d2b5e497a1368086b6a6f",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/spf13/jwalterweatherman",
+			"repository": "https://github.com/spf13/jwalterweatherman",
+			"revision": "33c24e77fb80341fe7130ee7c594256ff08ccc46",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/spf13/pflag",
+			"repository": "https://github.com/spf13/pflag",
+			"revision": "103ce5cd2042f2fe629c1957abb64ab3e7f50235",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/spf13/viper",
+			"repository": "https://github.com/spf13/viper",
+			"revision": "7fb2782df3d83e0036cc89f461ed0422628776f4",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/stretchr/objx",
+			"repository": "https://github.com/stretchr/objx",
+			"revision": "1a9d0bb9f541897e62256577b352fdbc1fb4fd94",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/stretchr/testify",
+			"repository": "https://github.com/stretchr/testify",
+			"revision": "d77da356e56a7428ad25149ca77381849a6a5232",
+			"branch": "master"
+		},
+		{
+			"importpath": "golang.org/x/crypto/curve25519",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "88d0005bf4c3ec17306ecaca4281a8d8efd73e91",
+			"branch": "master",
+			"path": "/curve25519"
+		},
+		{
+			"importpath": "golang.org/x/crypto/ed25519",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "88d0005bf4c3ec17306ecaca4281a8d8efd73e91",
+			"branch": "master",
+			"path": "/ed25519"
+		},
+		{
+			"importpath": "golang.org/x/crypto/ssh",
+			"repository": "https://go.googlesource.com/crypto",
+			"revision": "88d0005bf4c3ec17306ecaca4281a8d8efd73e91",
+			"branch": "master",
+			"path": "/ssh"
+		},
+		{
+			"importpath": "golang.org/x/sys/unix",
+			"repository": "https://go.googlesource.com/sys",
+			"revision": "a646d33e2ee3172a661fc09bca23bb4889a41bc8",
+			"branch": "master",
+			"path": "/unix"
+		},
+		{
+			"importpath": "golang.org/x/text/transform",
+			"repository": "https://go.googlesource.com/text",
+			"revision": "d69c40b4be55797923cec7457fac7a244d91a9b6",
+			"branch": "master",
+			"path": "/transform"
+		},
+		{
+			"importpath": "golang.org/x/text/unicode/norm",
+			"repository": "https://go.googlesource.com/text",
+			"revision": "d69c40b4be55797923cec7457fac7a244d91a9b6",
+			"branch": "master",
+			"path": "/unicode/norm"
+		},
+		{
+			"importpath": "gopkg.in/yaml.v2",
+			"repository": "https://gopkg.in/yaml.v2",
+			"revision": "e4d366fc3c7938e2958e662b4258c7a89e1f0e3e",
+			"branch": "v2"
+		}
+	]
+}
