@@ -1,14 +1,10 @@
 package dodecl
 
-import (
-	"fmt"
-
-	"github.com/pkg/errors"
-)
+import "github.com/pkg/errors"
 
 // Execer executes a Runbook.
 type Execer interface {
-	Exec(rb *RunBook) error
+	Exec(rb RunBook) error
 }
 
 type simpleExecer struct{}
@@ -20,17 +16,14 @@ func NewExecer() Execer {
 	return &simpleExecer{}
 }
 
-func (e *simpleExecer) Exec(rb *RunBook) error {
+func (e *simpleExecer) Exec(rb RunBook) error {
+	rb.Action()
 
-	for _, child := range rb.RunBooks {
-		err := e.Exec(&child)
+	for _, child := range rb.RunBooks() {
+		err := e.Exec(child)
 		if err != nil {
 			return errors.Wrapf(err, "failure running node %s", rb.Name)
 		}
-	}
-
-	if rb.Action != "" {
-		fmt.Printf("%s: %s\n", rb.Name, rb.Action)
 	}
 
 	return nil

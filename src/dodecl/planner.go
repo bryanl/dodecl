@@ -6,25 +6,29 @@ import (
 	"github.com/pkg/errors"
 )
 
-var (
-	actions = map[string]resourceAction{
-		"compute.v2.droplet":     dropletAction,
-		"compute.v2.floating-ip": fipAction,
-	}
-)
+type runBook struct {
+	name     string
+	runBooks []RunBook
+	action   string
+}
 
-type resourceAction func(Resource) (*RunBook, error)
+var _ RunBook = (*runBook)(nil)
 
-// RunBook is a set of actions to be run.
-type RunBook struct {
-	Name     string
-	RunBooks []RunBook
-	Action   string
+func (r *runBook) Name() string {
+	return r.name
+}
+
+func (r *runBook) RunBooks() []RunBook {
+	return r.runBooks
+}
+
+func (r *runBook) Action() {
+	fmt.Printf("%s: %s\n", r.name, r.action)
 }
 
 // Planner creates a plan of execution given a Dodecl description.
 type Planner interface {
-	Plan(d *Dodecl) (*RunBook, error)
+	Plan(d *Dodecl) (RunBook, error)
 }
 
 type simplePlanner struct{}
@@ -36,10 +40,10 @@ func NewPlanner() Planner {
 	return &simplePlanner{}
 }
 
-func (p *simplePlanner) Plan(d *Dodecl) (*RunBook, error) {
-	rb := &RunBook{
-		Name:     "root",
-		RunBooks: []RunBook{},
+func (p *simplePlanner) Plan(d *Dodecl) (RunBook, error) {
+	rb := &runBook{
+		name:     "root",
+		runBooks: []RunBook{},
 	}
 
 	for _, resource := range d.Resources {
@@ -55,24 +59,8 @@ func (p *simplePlanner) Plan(d *Dodecl) (*RunBook, error) {
 				"resource error for %s", resource.Type)
 		}
 
-		rb.RunBooks = append(rb.RunBooks, *resourceRunBook)
+		rb.runBooks = append(rb.runBooks, resourceRunBook)
 	}
 
 	return rb, nil
-}
-
-func dropletAction(r Resource) (*RunBook, error) {
-	return &RunBook{
-		Name: "create droplet",
-		Action: fmt.Sprintf("region: %s, count: %d, image: %s, size: %s, keys: %+v",
-			r.Properties["region"], r.Properties["count"], r.Properties["image"],
-			r.Properties["size"], r.Properties["keys"]),
-	}, nil
-}
-
-func fipAction(r Resource) (*RunBook, error) {
-	return &RunBook{
-		Name:   "create fip",
-		Action: fmt.Sprintf("region: %s", r.Properties["region"]),
-	}, nil
 }
