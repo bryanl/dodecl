@@ -11,10 +11,11 @@ func init() {
 
 // DropletSettings are settings for a droplet.
 type DropletSettings struct {
-	region string
-	image  string
-	size   string
-	keys   []sshKey
+	projectID string
+	region    string
+	image     string
+	size      string
+	keys      []sshKey
 }
 
 type sshKey struct {
@@ -31,7 +32,7 @@ type AddDropletRunBook struct {
 var _ RunBook = (*AddDropletRunBook)(nil)
 
 // NewAddDropletRunBook creates an instance of AddDropletRunBook.
-func NewAddDropletRunBook(r Resource) (*AddDropletRunBook, error) {
+func NewAddDropletRunBook(projectID string, r Resource) (*AddDropletRunBook, error) {
 	region, err := extractString(r.Properties["region"])
 	if err != nil {
 		return nil, err
@@ -59,16 +60,17 @@ func NewAddDropletRunBook(r Resource) (*AddDropletRunBook, error) {
 
 	rb := AddDropletRunBook{
 		dropletSettings: &DropletSettings{
-			region: region,
-			image:  image,
-			size:   size,
-			keys:   keys,
+			projectID: projectID,
+			region:    region,
+			image:     image,
+			size:      size,
+			keys:      keys,
 		},
 		runBooks: []RunBook{},
 	}
 
 	for i := 1; i <= count; i++ {
-		name := createDropletName(r, i)
+		name := createDropletName(rb.dropletSettings.projectID, r, i)
 		child := newCreateDropletRunBook(rb.dropletSettings, name)
 		rb.runBooks = append(rb.runBooks, child)
 	}
@@ -76,8 +78,8 @@ func NewAddDropletRunBook(r Resource) (*AddDropletRunBook, error) {
 	return &rb, nil
 }
 
-func createDropletName(r Resource, i int) string {
-	return fmt.Sprintf("%s-%d", r.Name, i)
+func createDropletName(projectID string, r Resource, i int) string {
+	return fmt.Sprintf("%s-%d-%s", r.Name, i, projectID)
 }
 
 // Name is the name for the runbook.
@@ -124,6 +126,6 @@ func (r *createDropletRunBook) Action() {
 	fmt.Println(r.Name())
 }
 
-func dropletAction(r Resource) (RunBook, error) {
-	return NewAddDropletRunBook(r)
+func dropletAction(projectID string, r Resource) (RunBook, error) {
+	return NewAddDropletRunBook(projectID, r)
 }

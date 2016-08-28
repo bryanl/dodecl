@@ -1,7 +1,7 @@
 package dodecl
 
-var actions = map[string]resourceAction{}
+var actions = actionMap{}
 
 type actionMap map[string]resourceAction
 
-type resourceAction func(Resource) (RunBook, error)
+type resourceAction func(projectID string, r Resource) (RunBook, error)

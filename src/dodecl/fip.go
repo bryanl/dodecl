@@ -9,7 +9,7 @@ func init() {
 	actions[FloatingIPKey] = fipAction
 }
 
-func fipAction(r Resource) (RunBook, error) {
+func fipAction(projectID string, r Resource) (RunBook, error) {
 	return &runBook{
 		name:   "create fip",
 		action: fmt.Sprintf("region: %s", r.Properties["region"]),

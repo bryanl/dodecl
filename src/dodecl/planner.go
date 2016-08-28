@@ -53,7 +53,7 @@ func (p *simplePlanner) Plan(d *Dodecl) (RunBook, error) {
 				resource.Type)
 		}
 
-		resourceRunBook, err := action(resource)
+		resourceRunBook, err := action(d.ID, resource)
 		if err != nil {
 			return nil, errors.Wrapf(err,
 				"resource error for %s", resource.Type)

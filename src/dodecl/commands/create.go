@@ -2,6 +2,7 @@ package commands
 
 import (
 	"dodecl"
+	"dodecl/util"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -57,6 +58,8 @@ func createCmdFn(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return errors.Wrap(err, "read yaml from string failure")
 	}
+
+	d.ID = util.RandID(5)
 
 	fmt.Printf("config: %#v\n", d)
 

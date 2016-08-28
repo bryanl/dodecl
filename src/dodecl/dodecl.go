@@ -4,6 +4,7 @@ import "gopkg.in/yaml.v2"
 
 // Dodecl is a set of declarative rules for infrastructure.
 type Dodecl struct {
+	ID        string
 	Resources []Resource `yaml:"resources"`
 }
 
