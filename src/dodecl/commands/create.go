@@ -2,6 +2,7 @@ package commands
 
 import (
 	"dodecl"
+	"dodecl/state"
 	"dodecl/util"
 	"fmt"
 	"io"
@@ -49,6 +50,11 @@ func createCmdFn(cmd *cobra.Command, args []string) error {
 		fmt.Println("reading", createFile)
 	}
 
+	err := state.App.Verify()
+	if err != nil {
+		return errors.Wrap(err, "unable to verify state resource")
+	}
+
 	guts, err := ioutil.ReadAll(fileReader)
 	if err != nil {
 		return err
@@ -60,8 +66,6 @@ func createCmdFn(cmd *cobra.Command, args []string) error {
 	}
 
 	d.ID = util.RandID(5)
-
-	fmt.Printf("config: %#v\n", d)
 
 	p := dodecl.NewPlanner()
 	plan, err := p.Plan(d)
